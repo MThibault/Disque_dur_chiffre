@@ -22,9 +22,9 @@ Vous réppondez "yes" à la question, et le script se chargera d'ouvrir le suppo
 ### Méthode basique pour toutes les utilisations
 
 Il faut envoyer 3 paramètres dans l'ordre suivant :
-1) La partition à monter sous la forme /dev/xxxx,
-2) Le nom que vous voulez donner à votre partition pour l'identifier dans /dev/mapper/,
-3) le point de montage de votre choix.
+* 1) La partition à monter sous la forme /dev/xxxx,
+* 2) Le nom que vous voulez donner à votre partition pour l'identifier dans /dev/mapper/,
+* 3) le point de montage de votre choix.
 
 La script s'occupera de vous monter la partition chiffrée.
 Par contre, il ne lui attribue pas de propriétaires particuliers, vous devrez donc le faire vous-mêmes. C'est une option à rajouter.
@@ -40,7 +40,7 @@ Il vous faut répondre oui à la question et c'est tout. Pas de paramètres à e
 ### Méthode basique pour toutes les utilisations
 
 Il y a deux paramètres à envoyer au script :
-1) Le nom que vous avez donné à la partition chiffrée pour l'identifier. Vous pouvez le trouver dans /dev/mapper/,
-2) Le point de montage que vous avez utilisé.
+* 1) Le nom que vous avez donné à la partition chiffrée pour l'identifier. Vous pouvez le trouver dans /dev/mapper/,
+* 2) Le point de montage que vous avez utilisé.
 
 Le script se chargera ensuite de démonter le périphérique, de fermer la partition chiffrée, et de supprimer le point de montage.
