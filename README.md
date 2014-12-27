@@ -10,7 +10,7 @@ J'ai donc écrit deux scripts, un pour le montage et l'autre pour le démontage 
 
 J'utilise cryptsetup qu'il peut être nécessaire d'installer, avec LUKS.
 
-## Montage d'un disque dur chiffré
+## Montage d'une partition chiffré
 
 Il y a deux méthodes, dont que je destine à Owncloud (mais qui peut servir pour autre chose) et qui est plus automatique.
 
@@ -27,3 +27,20 @@ Il faut envoyer 3 paramètres dans l'ordre suivant :
 3) le point de montage de votre choix.
 
 La script s'occupera de vous monter la partition chiffrée.
+Par contre, il ne lui attribue pas de propriétaires particuliers, vous devrez donc le faire vous-mêmes. C'est une option à rajouter.
+
+## Démontage d'une partition chiffrée
+
+Comme pour le montage, il y a deux méthodes, une tout automatique qui marche si vous avez fait le montage automatique, et l'autre pour le montage basique.
+
+### Méthode Owncloud
+
+Il vous faut répondre oui à la question et c'est tout. Pas de paramètres à envoyer au programme, c'est automatique.
+
+### Méthode basique pour toutes les utilisations
+
+Il y a deux paramètres à envoyer au script :
+1) Le nom que vous avez donné à la partition chiffrée pour l'identifier. Vous pouvez le trouver dans /dev/mapper/,
+2) Le point de montage que vous avez utilisé.
+
+Le script se chargera ensuite de démonter le périphérique, de fermer la partition chiffrée, et de supprimer le point de montage.
