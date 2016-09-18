@@ -9,14 +9,14 @@ if [ $choix = "yes" ]; then
 	cryptsetup luksClose Owncloud_storage_crypted
 	rm -r /media/Millant_1To_Io_N/Owncloud_storage/
 elif [ $choix = "no" ]; then
-	echo -e "Il faut entrer deux arguments : le nom de la partition chiffrée présent dans /dev/mapper/, et le point de montage.\n"
+	echo -e "Il faut entrer deux arguments : le nom de la partition chiffrée présent dans /dev/mapper/, et le point de montage."
 	if [ -z $1 ]; then
-		echo -e "\nVous n'avez pas saisi de nom.\n"
+		echo -e "Vous n'avez pas saisi de nom."
 		exit
 	fi
 
 	if [ -z $2 ]; then
-		echo -e "\nVous n'avez pas saisie de point de montage.\n"
+		echo -e "Vous n'avez pas saisie de point de montage."
 		exit
 	fi
 
@@ -24,5 +24,5 @@ elif [ $choix = "no" ]; then
 	cryptsetup luksClose $1
 	rm -r $2
 else
-	echo -e "\nVotre choix ne correspond pas aux choix attendus !\n"
+	echo -e "Votre choix ne correspond pas aux choix attendus !"
 fi
