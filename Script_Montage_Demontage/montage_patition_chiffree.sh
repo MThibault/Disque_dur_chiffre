@@ -9,12 +9,12 @@ if [ -z $1 ]; then # Correspond à la partition à utiliser
 	exit
 fi
 
-read -p "Voulez vous monter la partition de stockage d'Owncloud (yes/no) : " choix
+read -p "Voulez vous monter la partition de stockage de Nextcloud (yes/no) : " choix
 if [ $choix = "yes" ]; then
-	cryptsetup luksOpen $1 Owncloud_storage_crypted
-	mkdir -p /media/Millant_1To_Io_N/Owncloud_storage
-	mount -t ext4 /dev/mapper/Owncloud_storage_crypted /media/Millant_1To_Io_N/Owncloud_storage
-	chown www-data:www-data -R /media/Millant_1To_Io_N/Owncloud_storage/
+	cryptsetup luksOpen $1 Nextcloud_storage_crypted
+	mkdir -p /media/Millant_1To_Io_N/Nextcloud_storage
+	mount -t ext4 /dev/mapper/Nextcloud_storage_crypted /media/Millant_1To_Io_N/Nextcloud_storage
+	chown www-data:www-data -R /media/Millant_1To_Io_N/Nextcloud_storage/
 elif [ $choix = "no" ]; then
 	echo "Dans ce cas il vous faut aussi entrer le nom de la partition chiffrée, puis le point de montage."
 	if [ -z $2 ]; then # Correspond au nom de la partition chiffrée
