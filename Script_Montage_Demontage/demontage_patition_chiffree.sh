@@ -3,11 +3,14 @@
 #		Dev par Thibault MILLANT			#
 #################################################################
 
-read -p "Voulez vous démonter la partition de stockage d'Owncloud (yes/no) : " choix
+CHANGELOG :
+- Name changed to support Nextcloud
+
+read -p "Voulez vous démonter la partition de stockage d'Owncloud/Nextcloud (yes/no) : " choix
 if [ $choix = "yes" ]; then
-	umount /media/Millant_1To_Io_N/Owncloud_storage
-	cryptsetup luksClose Owncloud_storage_crypted
-	rm -r /media/Millant_1To_Io_N/Owncloud_storage/
+	umount /media/Millant_1To_Io_N/Nextcloud_storage
+	cryptsetup luksClose Nextcloud_storage_encrypted
+	rm -r /media/Millant_1To_Io_N/Nextcloud_storage/
 elif [ $choix = "no" ]; then
 	echo -e "Il faut entrer deux arguments : le nom de la partition chiffrée présent dans /dev/mapper/, et le point de montage."
 	if [ -z $1 ]; then
