@@ -3,6 +3,9 @@
 #		Dev par Thibault MILLANT			#
 #################################################################
 
+CHANGELOG :
+- 
+
 echo "Il faut au minimum donner en paramètre la partition concernée sous la forme /dev/xxxx."
 if [ -z $1 ]; then # Correspond à la partition à utiliser
 	echo "Vous n'avez pas saisi de partition à monter en tant que premier paramètre."
