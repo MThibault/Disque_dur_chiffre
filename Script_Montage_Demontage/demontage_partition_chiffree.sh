@@ -3,8 +3,8 @@
 #		Dev par Thibault MILLANT			#
 #################################################################
 
-CHANGELOG :
-- Name changed to support Nextcloud
+## CHANGELOG :
+## - Name changed to support Nextcloud
 
 read -p "Voulez vous démonter la partition de stockage d'Owncloud/Nextcloud (yes/no) : " choix
 if [ $choix = "yes" ]; then

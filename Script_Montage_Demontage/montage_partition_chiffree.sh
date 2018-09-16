@@ -3,8 +3,8 @@
 #		Dev par Thibault MILLANT			#
 #################################################################
 
-CHANGELOG :
-- Changing the code with Nextcloud instead of Owncloud
+## CHANGELOG :
+## - Changing the code with Nextcloud instead of Owncloud
 
 echo "Il faut au minimum donner en paramètre la partition concernée sous la forme /dev/xxxx."
 if [ -z $1 ]; then # Correspond à la partition à utiliser
