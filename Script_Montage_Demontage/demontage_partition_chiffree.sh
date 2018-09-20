@@ -8,9 +8,9 @@
 
 read -p "Voulez vous démonter la partition de stockage d'Owncloud/Nextcloud (yes/no) : " choix
 if [ $choix = "yes" ]; then
-	umount /media/Millant_1To_Io_N/Nextcloud_storage
-	cryptsetup luksClose Nextcloud_storage_encrypted
-	rm -r /media/Millant_1To_Io_N/Nextcloud_storage/
+	umount /media/WebRPiServices_storage
+	cryptsetup luksClose WebRPiServices_storage_encrypted
+	rm -r /media/WebRPiServices_storage
 elif [ $choix = "no" ]; then
 	echo -e "Il faut entrer deux arguments : le nom de la partition chiffrée présent dans /dev/mapper/, et le point de montage."
 	if [ -z $1 ]; then

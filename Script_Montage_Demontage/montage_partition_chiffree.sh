@@ -14,10 +14,10 @@ fi
 
 read -p "Voulez vous monter la partition de stockage d'Owncloud/Nextcloud (yes/no) : " choix
 if [ $choix = "yes" ]; then
-	cryptsetup luksOpen $1 Nextcloud_storage_encrypted
-	mkdir -p /media/Millant_1To_Io_N/Nextcloud_storage
-	mount -t ext4 /dev/mapper/Nextcloud_storage_encrypted /media/Millant_1To_Io_N/Nextcloud_storage
-	chown www-data:www-data -R /media/Millant_1To_Io_N/Nextcloud_storage/
+	cryptsetup luksOpen $1 WebRPiServices_storage_encrypted
+	mkdir -p /media/WebRPiServices_storage/
+	mount -t ext4 /dev/mapper/WebRPiServices_storage_encrypted /media/WebRPiServices_storage/
+	chown www-data:www-data -R /media/WebRPiServices_storage/
 elif [ $choix = "no" ]; then
 	echo "Dans ce cas il vous faut aussi entrer le nom de la partition chiffrée, puis le point de montage."
 	if [ -z $2 ]; then # Correspond au nom de la partition chiffrée
