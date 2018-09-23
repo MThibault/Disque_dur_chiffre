@@ -34,8 +34,8 @@ echo ""
 choose_mount
 case "$chosen_mount" in
 1) 
-	cryptsetup luksOpen $1 Nextcloud_storage_encrypted
-	mkdir -p /media/WebRPiservices_storage
+	cryptsetup luksOpen $1 WebRPiServices_storage_encrypted
+	mkdir -p /media/WebRPiServices_storage
 	mount -t ext4 /dev/mapper/WebRPiServices_storage_encrypted /media/WebRPiServices_storage/
 	chown www-data:www-data -R /media/WebRPiServices_storage
 	;;
@@ -62,5 +62,5 @@ case "$chosen_mount" in
 	mount -t ext4 /dev/mapper/$2 $3
 	;;
 *)
-	echo "Error in your selection."
+	echo "Error in your selection.";;
 esac
