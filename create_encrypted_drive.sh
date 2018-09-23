@@ -101,7 +101,10 @@ case "$chosen_cipher" in
 1) cmd="$cmd aes";;
 2) cmd="$cmd serpent";;
 3) cmd="$cmd twofish";;
-*) echo "Your answer for the cipher selection is not valid."; exit 1;;
+*)
+	echo "Your answer for the cipher selection is not valid."
+	exit 1
+	;;
 esac
 cmd="$cmd-xts-plain64"
 
@@ -111,7 +114,10 @@ chooseKeySize
 case "$chosen_keysize" in
 1) cmd="$cmd 256";;
 2) cmd="$cmd 512";;
-*) echo "Your answer for the key size seletion is not valid"; exit 1;;
+*) 
+	echo "Your answer for the key size seletion is not valid"
+	exit 1
+	;;
 esac
 
 ## Hash algorithm
@@ -126,7 +132,10 @@ chooseKeyFile
 case "$chosen_method" in
 1) cmd="$cmd --key-file $key_file_path";;
 2) ;;
-*) echo "Your answer for the encryption and decryption method is not valid"; exit 1;;
+*) 
+	echo "Your answer for the encryption and decryption method is not valid"
+	exit 1
+	;;
 esac
 
 ## Random Generator
@@ -158,7 +167,10 @@ cmd="cryptsetup open --type luks"
 case "$chosen_method" in
 1) cmd="$cmd --key-file $key_file_path";;
 2) ;;
-*) echo "Error Part 2 key file or passphrase"; exit 1;;
+*) 
+	echo "Error Part 2 key file or passphrase"
+	exit 1
+	;;
 esac
 
 ## Partition
@@ -191,7 +203,10 @@ case "$chosen_file_format" in
 5) cmd="$cmd -t exfat";;
 6) cmd="$cmd -t ntfs";;
 7) cmd="$cmd -t btrfs";;
-*) echo "Your answer for file format is not valid"; exit 1;;
+*) 
+	echo "Your answer for file format is not valid"
+	exit 1
+	;;
 esac
 
 ## Mapper name
@@ -220,7 +235,10 @@ case "$chosen_file_format" in
 5) cmd="$cmd -t exfat";;
 6) cmd="$cmd -t ntfs";;
 7) cmd="$cmd -t btrfs";;
-*) echo "Your answer for file format is not valid"; exit 1;;
+*) 
+	echo "Your answer for file format is not valid"
+	exit 1
+	;;
 esac
 
 cmd="$cmd /dev/mapper/$chosen_mapper_name /mnt"
