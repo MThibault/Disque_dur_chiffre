@@ -1,31 +1,56 @@
-#################################################################
-#	Script de démontage d'une partition chiffrée		#
-#		Dev par Thibault MILLANT			#
-#################################################################
+#!/usr/bin/env bash
+
+#########################################################
+#	Script to mount the encrypted partition		#
+#########################################################
+
+#Author : Thibault MILLANT
 
 ## CHANGELOG :
-## - Name changed to support Nextcloud
+## - Storage partition support added
+## - Translating the code from french to english
+## - Changing the code with Nextcloud instead of Owncloud
 
-read -p "Voulez vous démonter la partition de stockage d'Owncloud/Nextcloud (yes/no) : " choix
-if [ $choix = "yes" ]; then
-	umount /media/Millant_1To_Io_N/Nextcloud_storage
-	cryptsetup luksClose Nextcloud_storage_encrypted
-	rm -r /media/Millant_1To_Io_N/Nextcloud_storage/
-elif [ $choix = "no" ]; then
-	echo -e "Il faut entrer deux arguments : le nom de la partition chiffrée présent dans /dev/mapper/, et le point de montage."
+#########################
+#	Function	#
+#########################
+function choose_umount() {
+	echo "1 - Umount the partition for Owncloud/Nextcloud"
+	echo "2 - Umount a storage partition"
+	echo "3 - Manual umounting"
+	read -p "Select the number corresponding to your solution you want to use : " chosen_mount
+	echo ""
+}
+
+
+## Start Script
+choose_umount
+case "$chosen_umount" in
+1)
+	umount /media/WebRPiServices_storage
+	cryptsetup luksClose WebRPiServices_storage_encrypted
+	rm -r /media/WebRPiServices_storage
+	;;
+2)
+	umount /media/StorageRPi_storage
+	cryptsetup luksClose StorageRPi_storage_encrypted
+	rm -r /media/StorageRPi_storage
+	;;
+3)
+	echo "You need to enter, as script parameter, 2 others parameters : the name of the encrypted partition (you can find it in /dev/mapper/), and the path of the mounting point."
 	if [ -z $1 ]; then
-		echo -e "Vous n'avez pas saisi de nom."
-		exit
+		echo "You did not gave a name for the encrypted partition."
+		exit 1
 	fi
 
-	if [ -z $2 ]; then
-		echo -e "Vous n'avez pas saisie de point de montage."
-		exit
+	if [ -z $2 ] && [ ! -s "$2" ]; then
+		echo "You did not gave a path for the mounting point or the path is not valid."
+		exit 1
 	fi
 
 	umount $2
 	cryptsetup luksClose $1
 	rm -r $2
-else
-	echo -e "Votre choix ne correspond pas aux choix attendus !"
-fi
+	;;
+*)	echo "Error in your selection.";;
+esac
