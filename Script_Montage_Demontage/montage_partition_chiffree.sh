@@ -43,7 +43,7 @@ case "$chosen_mount" in
 	cryptsetup luksOpen $1 StorageRPi_storage_encrypted
 	mkdir -p /media/StorageRPi_storage
 	mount -t ext4 /dev/mapper/StorageRPi_storage_encrypted /media/StorageRPi_storage/
-	chown www-data:www-data -R /media/StorageRPi_storage
+	chown pi:pi -R /media/StorageRPi_storage
 	;;
 3)
 	echo "You need also to send, as script parameters, the name you want to give to the mapper for the encrypted partition (without spaces), and then the path to the mounting point."
